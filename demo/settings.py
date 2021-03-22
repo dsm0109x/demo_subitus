@@ -85,16 +85,11 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "algarin",
-            "USER": "doadmin",
-            "PASSWORD": "mqvh4ejfkij1o2a2",
-            # "HOST": "db-postgresql-sfo2-copypaste-v1-do-user-7791409-0.a.db.ondigitalocean.com",
-            "HOST": "private-db-postgresql-sfo2-copypaste-v1-do-user-7791409-0.a.db.ondigitalocean.com",
-            "PORT": "25060",
-            "OPTIONS": {
-                "sslmode": "require",  # leave this line intact
-                "sslrootcert": "/srv/ca-certificate.crt",
-            },
+            "NAME": "demo",
+            "USER": "demo",
+            "PASSWORD": "hola1234",
+            "HOST": "localhost",
+            "PORT": "",
         }
     }
 
