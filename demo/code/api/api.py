@@ -21,7 +21,7 @@ def send_data(request):
     id_course = request.data.get("courseid")
     score = request.data.get("score")
     avatar = request.data.get("avatar")
-    id_level = request.data.get("id_level")
+    id_level = request.data.get("levelid")
     if username is None or id_course is None or score is None or id_level is None:
         return Response(
             {"error": "Please provide the data ):"},
