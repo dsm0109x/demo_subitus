@@ -15,6 +15,10 @@ class User(AbstractUser):
         max_length=100, null=True, blank=False, verbose_name="ID en SCORM"
     )
 
+    id_user_scorm = models.CharField(
+        max_length=100, null=True, blank=False, verbose_name="ID en SCORM"
+    )
+
     id_course_scorm = models.CharField(
         max_length=100, null=True, blank=False, verbose_name="ID del curso en SCORM"
     )

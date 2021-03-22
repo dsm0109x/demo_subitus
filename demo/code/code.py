@@ -11,7 +11,7 @@ from django.db.models import Q
 
 
 def inicio(request):
-    usuarios = [x for x in User.objects.all() if x.score and x.username_scorm]
+    usuarios = [x for x in User.objects.all() if x.score and x.username_scorm and x.id_user_scorm]
     if usuarios:
         last_user = max([x.id for x in usuarios])
     else:

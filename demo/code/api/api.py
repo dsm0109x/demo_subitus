@@ -17,8 +17,10 @@ import random
 @permission_classes((AllowAny,))
 def send_data(request):
     username = request.data.get("username")
-    id_course = request.data.get("id_course")
+    id_user = request.data.get("userid")
+    id_course = request.data.get("courseid")
     score = request.data.get("score")
+    avatar = request.data.get("avatar")
     id_level = request.data.get("id_level")
     if username is None or id_course is None or score is None or id_level is None:
         return Response(
@@ -26,13 +28,15 @@ def send_data(request):
             status=HTTP_400_BAD_REQUEST,
         )
     else:
-        all_users = [x for x in User.objects.all() if x.username_scorm == username]
+        all_users = [x for x in User.objects.all() if x.id_user_scorm == id_user]
         if all_users:
             u = all_users[0]
         else:
             randomm = ''.join(random.choices(string.ascii_uppercase, k=10))
-            u = User.objects.create(username=username, email="{}@gmail.com".format(randomm), password="hola1234", score=score)
+            u = User.objects.create(username=id_user, email="{}@gmail.com".format(randomm), password="hola1234", score=score)
             u.username_scorm = username
+            u.avatar = avatar
+            u.id_user_scorm = id_user
             u.id_course_scorm = id_course
             u.id_level_scorm = id_level
             u.save()
