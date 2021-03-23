@@ -40,14 +40,9 @@
               <div class="col">
                 
                 <!-- Heading -->
-                <h2 class="font-weight-bold mb-0">
+                <h1 class="font-weight-bold mb-0">
                   Tablero
-                </h2>
-
-                <!-- Text -->
-                <p class="font-size-lg text-gray-700 mb-0">
-                  Top 10 de usuarios.
-                </p>
+                </h1>
 
               </div>
             </div> <!-- / .row -->
@@ -57,52 +52,45 @@
             
             <!-- Categories -->
             <div class="row">
-                {% for usuario in usuarios %}
-              <div class="col-12">
-                
-                <!-- Card -->
-                <div class="card card-border border-black  shadow-lg mb-4 lift lift-lg"
-                {% if forloop.counter == 1 %}style="border-top-width: 3px; border-color: #e9c46a!important"{% endif %}
-                     {% if forloop.counter == 2 %}style="border-top-width: 3px; border-color: #adb5bd!important"{% endif %}
-                {% if forloop.counter == 3 %}style="border-top-width: 3px; border-color: #b07d62!important"{% endif %}
-                >
-                  <div class="card-body text-left" style="padding-top: 20px !important; padding-bottom: 0px !important;">
-
-                      <div class="row">
-                          <div class="col-2">
-                              <!-- Icon -->
-                    <div class="icon-circle bg-dark text-white mb-0" {% if forloop.counter < 4 %}style="font-size: 2em; font-weight: bold;" {% else %}style="font-size: 1.3em;"{% endif %}>
-                      {{ forloop.counter }}
-                    </div>
-                          </div>
-              <div class="col-10">
-
-
-                    <!-- Heading -->
-                    <h4 class="font-weight-bold">
-                      {{ usuario.username }}
-                    </h4>
-
-                    <!-- Text -->
-                    <p class="text-gray-700 mb-5">
-                      {{ usuario.score }}
-                    </p>
+            <table class="table table-sm  table-hover table-centered mb-0">
+    <thead>
+        <tr>
+            <th>Posición</th>
+            <th>Usuario</th>
+            <th>Progreso</th>
+            <th>Puntuación</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for usuario in usuarios %}
+        <tr>
+        <td>{{ forloop.counter	 }}</td>
+            <td class="table-user">
+                {% if usuario.avatar == "1" %}
+                    <img src="{% static 'assets/img/1.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            {% if usuario.avatar == "2" %}
+                    <img src="{% static 'assets/img/2.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            {% if usuario.avatar == "3" %}
+                    <img src="{% static 'assets/img/3.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;" />
+                {% endif %}
+            {% if usuario.avatar == "4" %}
+                    <img src="{% static 'assets/img/4.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
 
 
-              </div>
-                      </div>
+                {{ usuario.username_scorm }} (ID:{{ usuario.id_user_scorm }})
+            </td>
+            <td>Curso:{{ usuario.id_course_scorm }}, nivel:{{ usuario.id_level_scorm }}</td>
+            <td>{{ usuario.score }}</td>
 
+        </tr>
+    {% endfor %}
 
+    </tbody>
+</table>
 
-                    
-                  </div>
-
-                </div>
-
-
-
-              </div>
-                {% endfor %}
 
             </div> <!-- / .row -->
 

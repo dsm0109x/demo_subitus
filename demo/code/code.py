@@ -17,7 +17,7 @@ def inicio(request):
     else:
         last_user = None
     return render(request,"inicio.html",{
-        "usuarios": usuarios,
+        "usuarios": sorted(usuarios, key=lambda x: x.score, reverse=True) if usuarios else [],
         "last_user": last_user
     })
 
