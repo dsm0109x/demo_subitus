@@ -31,6 +31,14 @@ class User(AbstractUser):
         max_length=300, null=True, blank=False, verbose_name="Avatar seleccionado"
     )
 
+    area = models.CharField(
+        max_length=300, null=True, blank=True, verbose_name="área"
+    )
+
+    puesto = models.CharField(
+        max_length=300, null=True, blank=True, verbose_name="Avatar seleccionado"
+    )
+
 
     score = models.CharField(
         max_length=1000, null=False, blank=False, verbose_name="Puntuación"

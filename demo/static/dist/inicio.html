@@ -41,7 +41,7 @@
                 
                 <!-- Heading -->
                 <h1 class="font-weight-bold mb-0">
-                  Tablero
+                  Tablero general
                 </h1>
 
               </div>
@@ -55,8 +55,9 @@
             <table class="table table-sm  table-hover table-centered mb-0">
     <thead>
         <tr>
-            <th>Posición</th>
+            <th>#</th>
             <th>Usuario</th>
+            <th>Curso</th>
             <th>Progreso</th>
             <th>Puntuación</th>
         </tr>
@@ -80,9 +81,26 @@
                 {% endif %}
 
 
-                {{ usuario.username_scorm }}
+                {{ usuario.username_scorm }} <small>({{ usuario.area }}: {{ usuario.puesto }})</small>
             </td>
-            <td>Curso:{{ usuario.id_course_scorm }}, nivel:{{ usuario.id_level_scorm }}</td>
+        <td>
+           {{ usuario.id_course_scorm }}
+        </td>
+            <td>
+
+                {% if usuario.id_level_scorm == "1" %}
+                    <img src="https://files-sis.fra1.digitaloceanspaces.com/AvataresBBVA/lv1.png" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            {% if usuario.id_level_scorm == "2" %}
+                <img src="https://files-sis.fra1.digitaloceanspaces.com/AvataresBBVA/lv2.png" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            {% if usuario.id_level_scorm == "3" %}
+                <img src="https://files-sis.fra1.digitaloceanspaces.com/AvataresBBVA/lv3.png" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            {% if usuario.id_level_scorm == "4" %}
+                <img src="https://files-sis.fra1.digitaloceanspaces.com/AvataresBBVA/lv4.png" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                {% endif %}
+            </td>
             <td>{{ usuario.score }}</td>
 
         </tr>
