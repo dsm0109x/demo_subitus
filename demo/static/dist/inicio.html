@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{% static 'assets/libs/highlightjs/styles/vs2015.css' %}">
     <link rel="stylesheet" href="{% static 'assets/libs/jarallax/dist/jarallax.css' %}">
     <link rel="stylesheet" href="{% static 'assets/libs/quill/dist/quill.core.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&display=swap" rel="stylesheet">
 
     <!-- Map -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
@@ -27,6 +29,16 @@
 
   </head>
   <body class="bg-light">
+  <style>
+      td{
+          color:#0466c8 !important;
+          font-weight: bold !important;
+      }
+      .new-font{
+          font-family: 'Anton', cursive !important;
+          color:#0466c8 !important;
+      }
+  </style>
 
     <!-- CONTENT
     ================================================== -->
@@ -40,8 +52,8 @@
               <div class="col">
                 
                 <!-- Heading -->
-                <h1 class="font-weight-bold mb-0">
-                  Tablero general
+                <h1 class="font-weight-bold new-font mb-0">
+                    TABLERO GENERAL <span style="font-size:0.8em !important;">EL TORNEO TERMINA EN 5 DÍAS</span>
                 </h1>
 
               </div>
@@ -52,10 +64,10 @@
             
             <!-- Categories -->
             <div class="row">
-            <table class="table table-sm  table-hover table-centered mb-0">
+            <table class="table table-sm  table-striped table-centered mb-0">
     <thead>
         <tr>
-            <th>#</th>
+            <th></th>
             <th>Usuario</th>
             <th>Curso</th>
             <th>Progreso</th>
@@ -65,19 +77,19 @@
     <tbody>
     {% for usuario in usuarios %}
         <tr>
-        <td>{{ forloop.counter	 }}</td>
+        <td class="new-font" style="font-size: 1.4em;">{{ forloop.counter	 }}</td>
             <td class="table-user">
                 {% if usuario.avatar == "1" %}
-                    <img src="{% static 'assets/img/1.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                    <img src="{% static 'assets/img/1.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 40px !important; border: 2px solid #0466c8;"/>
                 {% endif %}
             {% if usuario.avatar == "2" %}
-                    <img src="{% static 'assets/img/2.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                    <img src="{% static 'assets/img/2.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 40px !important; border: 2px solid #0466c8;"/>
                 {% endif %}
             {% if usuario.avatar == "3" %}
-                    <img src="{% static 'assets/img/3.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;" />
+                    <img src="{% static 'assets/img/3.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 40px !important; border: 2px solid #0466c8;" />
                 {% endif %}
             {% if usuario.avatar == "4" %}
-                    <img src="{% static 'assets/img/4.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 50px !important;"/>
+                    <img src="{% static 'assets/img/4.jpeg' %}" alt="table-user" class="me-2 rounded-circle" style="height: 40px !important; border: 2px solid #0466c8;"/>
                 {% endif %}
 
 
