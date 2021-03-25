@@ -32,11 +32,6 @@ def send_data(request):
         all_users = [x for x in User.objects.all() if x.id_user_scorm == id_user]
         if all_users:
             u = all_users[0]
-            u.delete()
-            randomm = ''.join(random.choices(string.ascii_uppercase, k=10))
-            u = User.objects.create(username=id_user, email="{}@gmail.com".format(randomm), password="hola1234",
-                                    score=score)
-            u.username_scorm = username
             u.avatar = avatar
             u.id_course_scorm = id_course
             u.id_level_scorm = id_level
