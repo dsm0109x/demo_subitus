@@ -22,8 +22,7 @@ def send_data(request):
     score = request.data.get("score")
     avatar = request.data.get("avatar")
     id_level = request.data.get("levelid")
-    area = request.data.get("area")
-    puesto = request.data.get("puesto")
+
     if username is None or id_course is None or score is None or id_level is None:
         return Response(
             {"error": "Please provide the data ):"},
@@ -37,8 +36,6 @@ def send_data(request):
             u.id_course_scorm = id_course
             u.id_level_scorm = id_level
             u.score = score
-            u.area = area
-            u.puesto = puesto
             u.save()
         else:
             randomm = ''.join(random.choices(string.ascii_uppercase, k=10))
@@ -48,8 +45,6 @@ def send_data(request):
             u.id_user_scorm = id_user
             u.id_course_scorm = id_course
             u.id_level_scorm = id_level
-            u.area = area
-            u.puesto = puesto
             u.save()
 
         return Response(
